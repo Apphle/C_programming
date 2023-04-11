@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\samsung\Desktop\202315015_JaeHyeokLEE\c언어 도전 150제\202315015_7\202315015_7\main.cpp(13,26): warning C4804: '>=': 연산에 'bool' 형식을 사용하는 것은 안전하지 않습니다.
+  202315015_7.vcxproj -> C:\Users\samsung\Desktop\202315015_JaeHyeokLEE\c언어 도전 150제\202315015_7\x64\Debug\202315015_7.exe
