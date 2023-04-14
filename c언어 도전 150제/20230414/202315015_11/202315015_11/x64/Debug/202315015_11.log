@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\samsung\Desktop\202315015_JaeHyeokLEE\c언어 도전 150제\20230412\202315015_11\202315015_11\main.cpp(10,6): warning C4309: '=': 상수 값이 잘립니다.
+C:\Users\samsung\Desktop\202315015_JaeHyeokLEE\c언어 도전 150제\20230412\202315015_11\202315015_11\main.cpp(11,6): warning C4309: '=': 상수 값이 잘립니다.
+LINK : fatal error LNK1168: C:\Users\samsung\Desktop\202315015_JaeHyeokLEE\c언어 도전 150제\20230412\202315015_11\x64\Debug\202315015_11.exe을(를) 쓰기용으로 열 수 없습니다.

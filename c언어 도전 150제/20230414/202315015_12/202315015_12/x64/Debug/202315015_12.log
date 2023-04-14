@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\samsung\Desktop\202315015_JaeHyeokLEE\c언어 도전 150제\20230412\202315015_12\202315015_12\main.cpp(6,10): warning C4309: '초기화 중': 상수 값이 잘립니다.
+  202315015_12.vcxproj -> C:\Users\samsung\Desktop\202315015_JaeHyeokLEE\c언어 도전 150제\20230412\202315015_12\x64\Debug\202315015_12.exe
