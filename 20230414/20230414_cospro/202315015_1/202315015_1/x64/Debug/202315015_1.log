@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\202315015_JaeHyeokLEE\20230414_cospro\202315015_1\202315015_1\main.cpp(24,3): error C2143: 구문 오류: ';'이(가) 'break' 앞에 없습니다.
+C:\202315015_JaeHyeokLEE\20230414_cospro\202315015_1\202315015_1\main.cpp(27,2): warning C4138: '*/'가 주석 외부에 있습니다.
+C:\202315015_JaeHyeokLEE\20230414_cospro\202315015_1\202315015_1\main.cpp(27,3): error C2059: 구문 오류: '/'
