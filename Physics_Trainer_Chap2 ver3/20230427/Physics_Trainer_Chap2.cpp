@@ -39,14 +39,13 @@ void Excersize_2_15(int solution, int answer)
 		// your code here
 		printf("(a) 이 비행기가 활주로를 %4.2lf m 달린 후 이륙하기 위해 필요한 최소의 가속도는 얼마인가? \n\n", distance);
 
-		printf("관련 공식은 v^2 - v0^2 = 2 * a * Δx 입니다.\n");  //밑의 공식도 이렇게 바꾸세요
-
 		printf("속도의 단위 km/h 를 m/s 로 바꿔야 합니다.\n");
 		printf("1km * 1000 m / 1h * 3600 s = 1 / 3.6으로 나눠줍니다.\n");
 		velocity_m = velocity * m / s;
 		printf("따라서 %4.2lf km/h = %4.2lf km/h / 3.6 = %4.2lf m/s 입니다.\n\n", velocity, velocity, velocity_m);
 
-		printf("v^2은 나중속도 이므로 %4.2lf m/s^2 이고,\n", velocity_m);   // 120은 나중에 자동을 바뀔 값이므로 변수로 바꿀것
+		printf("관련 공식은 v^2 - v0^2 = 2 * a * Δx 입니다.\n"); 
+		printf("v^2은 나중속도 이므로 %4.2lf m/s^2 이고,\n", velocity_m); 
 		printf("v0^2은 처음속도 이므로 0 m/s 입니다.\n");
 		printf("v^2 - v0^2 =  %4.2lf m/s 입니다.\n\n", pow(velocity_m, 2));
 
@@ -60,9 +59,9 @@ void Excersize_2_15(int solution, int answer)
 	}
 	if (answer == SHOW)
 	{
-		printf("=========================   정 답   =============================\n");  // 공식 바꾸고
+		printf("=========================   정 답   =============================\n");  
 
-		printf("공식 v^2 - v0^2 = 2 * a * Δx 에 대입하면\n");  //밑의 공식도 이렇게 바꾸세요
+		printf("공식 v^2 - v0^2 = 2 * a * Δx 에 대입하면\n"); 
 		printf("%4.2lf m/s^2 - %4.2lf^2 = 2 * a * %4.2lf m 입니다.\n", velocity_m, velocity0, distance);
 		printf("a = %4.2lf m/s^2 / (2 * %4.2lf m)\n\n", velocity_m, distance, a);
 		printf("답: a = %4.2lf m/s^2 \n\n", a);
@@ -115,25 +114,6 @@ int main(void)
 	printf("=================================================================\n");
 
 
-	//Excersize_2_1(1,1);  // 완료
-	//Excersize_2_3(1,1);  // 완료
-	//Excersize_2_5(1,1);  // 완료
-	//  Excersize_2_10(1,1); // 
-	//  Excersize_2_9(1,1); // 
-	//Excersize_2_11(1,1); // 완료
-	//Excersize_2_13(1,1);
-
 	Excersize_2_15(1, 1);
-	//Excersize_2_19(1, 1); // 완료
-
-	//Excersize_2_2(1, 0);
-	//Excersize_2_12(1, 0);
-    //  Excersize_2_21(1,1); //완료
-	//Excersize_2_25(1, 1); //완료
-	//Excersize_2_28(1,1);
-
-
-
-
 }
 
