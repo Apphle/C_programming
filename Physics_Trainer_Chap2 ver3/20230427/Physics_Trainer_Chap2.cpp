@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define _USE_MATH_DEFINES     // M_PI¸¦ »ç¿ëÇÏ±â À§ÇØ¼­ Ãß°¡
+#define _USE_MATH_DEFINES     // M_PIë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œ ì¶”ê°€
 #include <math.h>
 
 #define SHOW          1
@@ -11,537 +11,8 @@
 
 #define DEG2RAD(x)  x*M_PI/180.
 #define RAD2DEG(x)  x*180/M_PI
-/*
-void Excersize_2_1(int solution, int answer)
-{
 
-	double north_distance1 = 130.0;
-	double south_distance = 76.7;
-	double north_distance2 = 80.5;
-	double x_displacement  = 0.0, y_displacement  = 0.0;
-	double x_displacement1 = 0.0, y_displacement1 = 0.0;
-	double x_displacement2 = 0.0, y_displacement2 = 0.0;
-	double x_displacement3 = 0.0, y_displacement3 = 0.0;
-
-	printf("\n\n");
-	printf("2-1 \n");
-	printf("´ëÇü±âµ¿Çï±â°¡ ±âÁö¸¦ Ãâ¹ßÇÏ¿© ºÏÂÊÀ¸·Î %4.1lf km¸¦ ³¯¾Æ°£ ÈÄ\n", north_distance1);
-	printf("ÁüÀ» ³»·Á³õ°í ³²ÂÊÀ¸·Î %4.1lf km¸¦ ³¯¾Æ°¡ ´Ù¸¥ ¹°°ÇÀ» ½Æ°í   \n", south_distance);
-	printf("´Ù½Ã ºÏÂÊÀ¸·Î %4.1lf km¸¦ ³¯¾Æ Âø·úÇÏ¿´´Ù.\n\n", north_distance2);
-	printf("(a) Ã³À½ ±âÁö·ÎºÎÅÍ ¸¶Áö¸· µµÂø ÁöÁ¡±îÁöÀÇ Çï±âÀÇ º¯À§´Â ¾ó¸¶ÀÎ°¡ ?\n\n");
-	
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=================================================================\n");
-		// your code here
-		printf("°ü·Ã °ø½ÄÀº VectorÀÇ ¼ººÐ ºÐÇØÀÔ´Ï´Ù.\n");
-		printf("¸ÕÀú °¢ ÀÌµ¿ °Å¸®¸¦ x,yÃàÀ¸·Î ¼ººÐ ºÐÇØ¸¦ ÇÏ¼¼¿ä.\n");
-
-		//   2023.04.07 Ãß°¡ //
-		printf("ºÏÂÊÀ» YÃàÀ¸·Î µ¿ÂÊÀ» X ÃàÀ¸·Î ÁÂÇ¥ÃàÀ» Á¤ÇÕ´Ï´Ù.\n\n");
-		printf("ºÏÂÊÀ¸·Î %4.1lf km¸¦ ³¯¾Æ°£ ÀÌµ¿¿¡ ´ëÇÑ X º¯À§, Y º¯À§´Â ´ÙÀ½°ú °°½À´Ï´Ù.\n");
-
-		x_displacement1 = north_distance1 * cos(DEG2RAD(90));
-		y_displacement1 = north_distance1 * sin(DEG2RAD(90));
-
-		printf("X º¯À§ :  %.2lf km, Y º¯À§ :  %.2lf km \n\n", x_displacement1, y_displacement1);
-
-		printf("ÁüÀ» ³»·Á³õ°í ³²ÂÊÀ¸·Î %4.1lf km¸¦ ³¯¾Æ°£ ÀÌµ¿¿¡ ´ëÇÑ X º¯À§, Y º¯À§´Â ´ÙÀ½°ú °°½À´Ï´Ù.\n", south_distance);
-
-		x_displacement2 = south_distance * cos(DEG2RAD(-90));
-		y_displacement2 = south_distance * sin(DEG2RAD(-90));
-		printf("X º¯À§ :  %.2lf km, Y º¯À§ :  %.2lf km \n\n", x_displacement2, y_displacement2);
-
-		printf("´Ù½Ã ºÏÂÊÀ¸·Î %4.1lf km¸¦ ³¯¾Æ Âø·úÇÑ ÀÌµ¿¿¡ ´ëÇÑ X º¯À§, Y º¯À§´Â ´ÙÀ½°ú °°½À´Ï´Ù.\n", north_distance2);
-
-		x_displacement3 = north_distance2 * cos(DEG2RAD(90));
-		y_displacement3 = north_distance2 * sin(DEG2RAD(90));
-
-		printf("X º¯À§ :  %.2lf km, Y º¯À§ :  %.2lf km \n\n", x_displacement3, y_displacement3);
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-	if (answer == SHOW)
-	{
-		printf("=========================   Á¤ ´ä   =============================\n");
-		x_displacement = x_displacement1 + x_displacement2 + x_displacement3;
-
-		printf("X º¯À§ ÇÕÀº ´ÙÀ½°ú °°½À´Ï´Ù. \n%.2lf km = %.2lf km +  %.2lf km  + %.2lf km\n\n", x_displacement, x_displacement1, x_displacement2, x_displacement3);
-
-		y_displacement = y_displacement1 + y_displacement2 + y_displacement3;
-
-		printf("Y º¯À§ ÇÕÀº ´ÙÀ½°ú °°½À´Ï´Ù. \n%.2lf km = %.2lf km +  %.2lf km  + %.2lf km\n\n", y_displacement, y_displacement1, y_displacement2, y_displacement3);
-
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-	
-	printf("(b) ¶Ç ÀÌ³¯ Çï±â°¡ ¿òÁ÷ÀÎ ÃÑ °Å¸®´Â ¾ó¸¶ÀÎ°¡ ? \n\n");
-
-	if (solution == SHOW)
-	{
-
-	}
-
-	if (answer == SHOW)
-	{
-
-
-	}
-
-}
-*/
-
-void Excersize_2_1(int solution, int answer)  // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú °íÁöÈ¯  2023.04.14 ¿Ï·á
-{
-
-	double north_distance1 = 130.0;
-	double south_distance = 76.7;
-	double north_distance2 = 80.5;
-	double x_displacement = 0.0;
-	double displacement = 0.0;
-
-	printf("\n\n");
-	printf("2-1 \n");
-	printf("´ëÇü±âµ¿Çï±â°¡ ±âÁö¸¦ Ãâ¹ßÇÏ¿© ºÏÂÊÀ¸·Î %4.1lf km¸¦ ³¯¾Æ°£ ÈÄ\n", north_distance1);
-	printf("ÁüÀ» ³»·Á³õ°í ³²ÂÊÀ¸·Î %4.1lf km¸¦ ³¯¾Æ°¡ ´Ù¸¥ ¹°°ÇÀ» ½Æ°í   \n", south_distance);
-	printf("´Ù½Ã ºÏÂÊÀ¸·Î %4.1lf km¸¦ ³¯¾Æ Âø·úÇÏ¿´´Ù.\n\n", north_distance2);
-	printf("(a) Ã³À½ ±âÁö·ÎºÎÅÍ ¸¶Áö¸· µµÂø ÁöÁ¡±îÁöÀÇ Çï±âÀÇ º¯À§´Â ¾ó¸¶ÀÎ°¡ ?\n\n");
-
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=========================    Ç® ÀÌ   =============================\n");
-		printf("°ü·Ã °ø½ÄÀº ºÏÂÊÀ¸·Î ÀÌµ¿ÇÑ °ªÀº ´õÇÏ°í ³²ÂÊÀ¸·Î ÀÌµ¿ÇÑ °ªÀº »©´Â °ÍÀÔ´Ï´Ù. \n");
-
-		x_displacement = north_distance1 + north_distance2;
-		printf("´ëÇü±âµ¿Çï±â°¡ ºÏÂÊÀ¸·Î ÀÌµ¿ÇÑ°Å¸®´Â %4.1lf km´Â ´ÙÀ½°ú °°½À´Ï´Ù. \n", x_displacement);
-
-		printf("´ëÇü±âµ¿Çï±â°¡ ³²ÂÊÀ¸·Î ÀÌµ¿ÇÑ°Å¸®´Â %4.1lf km´Â ´ÙÀ½°ú °°½À´Ï´Ù. \n\n", south_distance);
-	}
-
-	if (answer == SHOW)
-	{
-		printf("=========================   Á¤ ´ä   =============================\n");
-		displacement = x_displacement - south_distance;
-		printf("(a) Ã³À½ ±âÁö·ÎºÎÅÍ ¸¶Áö¸· µµÂø ÁöÁ¡±îÁöÀÇ Çï±âÀÇ º¯À§´Â ¾ó¸¶ÀÎ°¡ ? \n\n");
-		printf("´ëÇü±âµ¿Çï±â°¡ ±âÁö·ÎºÎÅÍ ¸¶Áö¸· µµÂøÁöÁ¡Àº ´ÙÀ½°ú °°½À´Ï´Ù. : %4.1lf km\n", displacement);
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-	printf("(b) ¶Ç ÀÌ³¯ Çï±â°¡ ¿òÁ÷ÀÎ ÃÑ °Å¸®´Â ¾ó¸¶ÀÎ°¡ ? \n\n");
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=========================    Ç® ÀÌ   ============================\n");
-		printf("°ü·Ã °ø½ÄÀº ÃÑ ¿òÁ÷ÀÎ°Å¸®ÀÇ ÃÑÇÕÀÔ´Ï´Ù. \n");
-		x_displacement = north_distance1 + north_distance2;
-		printf("´ëÇü±âµ¿Çï±â°¡ ºÏÂÊÀ¸·Î ÀÌµ¿ÇÑ°Å¸®´Â %4.1lf km´Â ´ÙÀ½°ú °°½À´Ï´Ù. \n", x_displacement);
-
-		printf("´ëÇü±âµ¿Çï±â°¡ ³²ÂÊÀ¸·Î ÀÌµ¿ÇÑ°Å¸®´Â %4.1lf km´Â ´ÙÀ½°ú °°½À´Ï´Ù. \n\n", south_distance);
-	}
-
-	if (answer == SHOW)
-	{
-		printf("=========================   Á¤ ´ä   =============================\n");
-		printf("(b) ¶Ç ÀÌ³¯ Çï±â°¡ ¿òÁ÷ÀÎ ÃÑ °Å¸®´Â ¾ó¸¶ÀÎ°¡ ? \n\n");
-		displacement = x_displacement + south_distance;
-		printf("´ëÇü±âµ¿Çï±â°¡ ÃÑ ¿òÁ÷ÀÎ °Å¸®ÀÇ ÇÕÀº ´ÙÀ½°ú °°½À´Ï´Ù. : %4.1lf km \n", displacement);
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-}
-
-/*
-void Excersize_2_3(int solution, int answer)   // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú ±èÁ¾¼±  2023.04.14 ¹Ì¿Ï·á
-{
-	double distance = 408000.0; // 408km ¸¦ m·Î º¯È¯ÇÑ °ª
-	double time1 = 10.0;
-	double time = 9420;        // 2½Ã°£ 37ºÐÀ» ÃÊ·Î º¯È¯ÇÑ °ª
-	double time_h = 12.0;
-	double time_m = 37.0;
-	double velocity = 0.0;
-
-	printf("\n\n");
-	printf("2-3 \n");
-	printf("¼­¿ï¿¡¼­ ºÎ»ê±îÁöÀÇ KTX ³ë¼±ÀÇ °Å¸®´Â ¾à %d kmÀÌ´Ù\n", distance);
-	printf("¿ÀÀü %d ½Ã¿¡ ¼­¿ï¿ªÀ» Ãâ¹ßÇÑ KTX°¡ %d ½Ã %d ºÐ ºÎ»ê¿ª¿¡ µµÂøÇÏ¿´´Ù.\n\n", time1, time_h, time_m);
-
-	printf("¿­Â÷ÀÇ Æò±Õ¼Ó·ÂÀº ¸î m/sÀÎ°¡?\n");
-
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=================================================================\n");
-		// your code here
-		printf("¸ÕÀú Æò±Õ ¼Ó·ÂÀÇ °ø½ÄÀ» ±¸ÇÏ¼¼¿ä.\n\n");
-		printf("Æò±Õ ¼Ó·ÂÀÇ °ø½ÄÀº : VÆò±Õ = (Xf - Xi) / (Tf - Ti) ÀÔ´Ï´Ù.\n\n");
-
-		printf("=================================================================\n");
-	}
-
-	if (answer == SHOW)
-	{
-		printf("=========================   Á¤ ´ä   =============================\n");
-
-		velocity = distance / time;
-
-		printf("Æò±Õ¼Ó·ÂÀ» ±¸ÇÏ´Â ¹ýÀº ´ÙÀ½°ú °°½À´Ï´Ù.\n%.2lf m/s = %.2lf m / %.2lf s\n\n", velocity, distance, time);
-
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-}
-*/
-
-void Excersize_2_3(int solution, int answer) // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú ±èÁ¾¼±  2023.04.15 ¿Ï·á
-{
-	double distance = 408.0;
-	double distance_0 = 0.0;
-	double time_0 = 10.0;
-	double time_h = 12.0;
-	double time_m = 37.0;
-	double time_x = 157;
-	double time_s = 60;
-	double time_f = 9420;
-	double velocity = 43.3;
-
-
-	printf("\n\n");
-	printf("2-3 \n");
-	printf("¼­¿ï¿¡¼­ ºÎ»ê±îÁöÀÇ KTX ³ë¼±ÀÇ °Å¸®´Â ¾à %.0lf kmÀÌ´Ù\n", distance);
-	printf("¿ÀÀü %.0lf ½Ã¿¡ ¼­¿ï¿ªÀ» Ãâ¹ßÇÑ KTX°¡ %.0lf ½Ã %.0lf ºÐ ºÎ»ê¿ª¿¡ µµÂøÇÏ¿´´Ù.\n\n", time_0, time_h, time_m);
-
-	printf("¿­Â÷ÀÇ Æò±Õ¼Ó·ÂÀº ¸î m/sÀÎ°¡?\n");
-
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=========================    Ç® ÀÌ   ============================\n");
-		// your code here
-		printf("ÀÌ ¹®Á¦¸¦ ÇØ°áÇÏ±â À§ÇØ¼­´Â Æò±Õ ¼Ó·ÂÀ» ±¸ÇØ¾ßÇÕ´Ï´Ù. \n\n");
-		printf("µû¶ó¼­ Æò±Õ ¼Ó·ÂÀÇ °ø½ÄÀº : vavg = (vf - vi / tf - ti)ÀÔ´Ï´Ù \n\n");
-		printf("³ªÁß°Å¸® vf´Â %.0lfkmÀÌ°í, Ã³À½°Å¸®´Â %.0lfkmÀÔ´Ï´Ù. \n", distance, distance_0);
-		printf("³ªÁß½Ã°£Àº %.0lf h %.0lf mÀÌ°í, Ã³À½½Ã°£Àº %.0lf hÀÔ´Ï´Ù.\n", time_h, time_m, time_0);
-		printf("Æò±Õ¼Ó·ÂÀº %.0lfkm - %.0lfkm / %.0lfh %.0lfm - %.0lfhÀÌ¸ç\n", distance, distance_0, time_h, time_m, time_0);
-		printf("km/h ¸¦ m/s·Î º¯È¯ÇØº¸¸é\n");
-		printf("km´Â m¿¡ 1000À» °öÇÏ¸é µÇ°í,\n'h'¿¡ 3600À» °öÇÏ¿© 's'¸¦ ±¸ÇÏ°í 'm'¿¡ 60À» °öÇÏ¿© 's'¸¦ ±¸Èü´Ï´Ù\n");
-		printf("µû¶ó¼­ %.0lfkm = %.0lfkm * 1000 = 408000mÀÌ°í\n2h 37m = 2h * 3600 + 37m * 60 = %.0lfsÀÔ´Ï´Ù\n", distance, distance, time_f);
-
-		
-		printf("=================================================================\n");
-	}
-
-	if (answer == SHOW)
-	{
-		printf("=========================   Á¤ ´ä   =============================\n");
-
-
-		printf("km/h¿¡¼­ m/s·Î º¯È¯ÇÑ °ªÀ» °Å¸®¸¦ ½Ã°£À¸·Î ³ª´©¸é µË´Ï´Ù\n");
-		printf("µû¶ó¼­ %.0lf x 1000 / %.0lf = %.1lfÀÌ¹Ç·Î\n´äÀº %.1lf ÀÔ´Ï´Ù\n", distance, time_f, velocity, velocity);
-
-
-
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-}
-
-
-void Excersize_2_5(int solution, int answer)  // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú ±èÁ¾¼±  2023.04.14 ¿Ï·á
-{
-	double distance1 = 200;
-	double velocity1 = 90;
-	double distance2 = 200;
-	double velocity2 = 50;
-	double all_distance = 0;
-	double all_time = 0;
-	double time1 = 0;
-	time1 = distance1 / velocity1;
-	double time2 = 0;
-	time2 = distance2 / velocity2;
-	double time3 = 1;
-	double displacement = 0;
-	double average_velocity = 0;
-	double average_speed = 0;
-
-
-	printf("\n\n");
-	printf("2-5 \n");
-	printf("¾î¶² »ç¶÷ÀÌ °í¼Óµµ·Î¸¦ Ã³À½ %6.2lf km´Â %6.2lf km/hÀÇ ¼Ó·ÂÀ¸·Î ´Þ¸®°í, \n", distance1, velocity1);
-	printf("1½Ã°£ µ¿¾È Á¡½É½Ä»ç¸¦ ÇÑ ÈÄ¿¡ ´Ù½Ã %6.2lf km¸¦ %6.2lf km/h·Î ´Þ·Á¼­ µÇµ¹¾Æ¿Ô´Ù. \n\n", distance2, velocity2);
-	printf("(a) ÀÌ »ç¶÷ÀÇ ¿©Çà°úÁ¤¿¡¼­ Æò±Õ ¼Ó·ÂÀº ¾ó¸¶ÀÎ°¡?\n\n");
-
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=========================    Ç® ÀÌ   ============================\n");		
-		printf("°ü·Ã °ø½ÄÀº  °Å¸®(¥Äx) = ¼Ó·Â(v) x ½Ã°£(t) ÀÔ´Ï´Ù.\n\n");
-
-		printf("%6.2lf km¸¦ %6.2lf km/h·Î °¥ ¶§ °É¸° ½Ã°£Àº %6.2lfkm(°¥ ¶§ÀÇ ÀÌµ¿°Å¸®) / %6.2lfkm/h(°¥ ¶§ÀÇ ¼Ó·Â) = %6.2lfh(°É¸° ½Ã°£)ÀÌ´Ù. \n", distance1, velocity1, distance1, velocity1, time1);
-		printf("%6.2lf km¸¦ %6.2lf km/h·Î ¿Ã ¶§ °É¸° ½Ã°£Àº %6.2lfkm(¿Ã ¶§ÀÇ ÀÌµ¿°Å¸®) / %6.2lfkm/h(¿Ã ¶§ÀÇ ¼Ó·Â) = %6.2lfh(°É¸° ½Ã°£)ÀÌ´Ù. \n", distance2, velocity2, distance2, velocity2, time2);
-		printf("Á¡½É½Ã°£ ½Ä»ç¸¦ ÇÏ´Âµ¥ °É¸®´Â ½Ã°£Àº %6.2lfhÀÌ´Ù.\n\n", time3);
-
-		all_time = time1 + time2 + time3;
-		printf("ÃÑ °É¸°½Ã°£Àº %6.2lfh(°¥ ¶§ÀÇ ½Ã°£) + %6.2lfh(¿Ã ¶§ÀÇ ½Ã°£) + %6.2lfh(½Ä»ç ÇÑ ½Ã°£) = %6.2lfhÀÌ´Ù. \n\n", time1, time2, time3, all_time);
-
-		all_distance = distance1 + distance2;
-		printf("ÃÑ ÀÌµ¿ÇÑ °Å¸®´Â %6.2lfkm(°¥ ¶§ÀÇ °Å¸®) + %6.2lfkm(¿Ã ¶§ÀÇ °Å¸®) = %6.2lfkmÀÌ´Ù. \n\n\n", distance1, distance2, all_distance);
-
-
-
-	}
-	if (answer == SHOW)
-	{
-		printf("=========================   Á¤ ´ä   =============================\n");
-		printf("(a) ÀÌ »ç¶÷ÀÇ ¿©Çà°úÁ¤¿¡¼­ Æò±Õ ¼Ó·ÂÀº ¾ó¸¶ÀÎ°¡? \n\n");
-
-		printf("°ü·Ã °ø½ÄÀº Æò±Õ ¼Ó·Â(average_velocity) = ÃÑ ÀÌµ¿ °Å¸®(all_distance) / ÃÑ °É¸° ½Ã°£(all_time)ÀÌ´Ù.  vavg = ¥Äx/¥Ät\n\n");
-
-		all_distance = distance1 + distance2;
-		printf("ÃÑ ÀÌµ¿ °Å¸®: %6.2lfkm \n\n", all_distance);
-
-		all_time = time1 + time2 + time3;
-		printf("ÃÑ °É¸° ½Ã°£: %6.2lfh \n\n", all_time);
-
-		average_velocity = (distance1 + distance2) / (time1 + time2 + time3);
-		printf("Æò±Õ ¼Ó·ÂÀº %6.2lfkm(ÃÑ ÀÌµ¿ °Å¸®) / %6.2lfh(ÃÑ °É¸° ½Ã°£) = %6.2lfkm/h(Æò±Õ ¼Ó·Â) \n", all_distance, all_time, average_velocity);
-		printf("ÀÌ »ç¶÷ÀÇ ¿©Çà°úÁ¤¿¡¼­ Æò±Õ ¼Ó·Â: %6.2lfkm/h \n", average_velocity);
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-
-	printf("(b) ÀÌ »ç¶÷ÀÇ ¿©Çà°úÁ¤¿¡¼­ Æò±Õ ¼Óµµ´Â ¾ó¸¶ÀÎ°¡?\n\n");
-
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=========================    Ç® ÀÌ   ============================\n");
-		printf("°ü·Ã °ø½ÄÀº º¯À§ = ½ÃÀÛÁ¡¿¡¼­ ³¡Á¡±îÁöÀÇ À§Ä¡º¯È­ÀÔ´Ï´Ù.\n");
-		printf("°ü·Ã °ø½ÄÀº Æò±Õ ¼Óµµ(average_speed) = º¯À§(displacement) / ÃÑ °É¸° ½Ã°£(all_time)ÀÔ´Ï´Ù.\n\n");
-
-		displacement = distance1 - distance2;
-		printf("º¯À§´Â %6.2lfkm(°¥ ¶§ÀÇ °Å¸®) - %6.2lfkm (¿Ã ¶§ÀÇ °Å¸®) = %6.2lfkm(º¯À§)ÀÌ´Ù.\n\n", distance1, distance2, displacement);
-
-		all_time = time1 + time2 + time3;
-		printf("ÀÌ »ç¶÷ÀÇ ¿©Çà°úÁ¤¿¡¼­ ÃÑ °É¸°½Ã°£Àº %6.2lfh(°¥ ¶§ÀÇ ½Ã°£)+ %6.2lfh(¿Ã ¶§ÀÇ ½Ã°£) + %6.2lfh(½Ä»ç ÇÑ ½Ã°£) = %6.2lfhÀÌ´Ù. \n\n\n", time1, time2, time3, all_time);
-
-	}
-
-	if (answer == SHOW)
-	{
-		printf("=========================   Á¤ ´ä   =============================\n");
-		printf("(b) ÀÌ »ç¶÷ÀÇ ¿©Çà°úÁ¤¿¡¼­ Æò±Õ ¼ÓµµÀº ¾ó¸¶ÀÎ°¡?\n");
-		printf("ÀÌ »ç¶÷ÀÇ ¿©Çà°úÁ¤¿¡¼­ Æò±Õ ¼Óµµ´Â º¯À§ / ÃÑ °É¸° ½Ã°£ÀÌ´Ù.\n");
-
-		displacement = distance1 - distance2;
-		printf("º¯À§: %6.2lfkm\n\n", displacement);
-
-		all_time = time1 + time2 + 1;
-		printf("ÃÑ °É¸° ½Ã°£: %6.2lfh\n\n", all_time);
-
-		average_speed = displacement / (time1 + time2 + 1);
-		printf("Æò±Õ ¼Óµµ´Â %6.2lfkm(º¯À§) / %6.2lfh(ÃÑ °É¸° ½Ã°£) = %6.2lfkm/h(Æò±Õ ¼Óµµ) \n", displacement, all_time, average_speed);
-		printf("ÀÌ »ç¶÷ÀÇ ¿©Çà°úÁ¤¿¡¼­ Æò±Õ ¼Óµµ: %6.2lf km/h \n", average_speed);
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-}
-
-void Excersize_2_9(int solution, int answer) // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú ¼³µ¿¹Î  2023.04.19 ¹Ì¿Ï·á
-{
-	double zero_back1 = 7.1;
-	double zero_back2 = 11.2;
-	double ti1 = 0;
-	double tf1 = 11.2;
-	double vi1 = 0;
-	double vf1 = 100;
-	double ti2 = 0;
-	double tf2 = 0;
-	double vi2 = 0;
-	double vf2 = 0;
-	double answer1 = 0;
-	double answer2 = 0;
-
-
-	printf("\n\n");
-	printf("2-9 \n");
-	printf("========================   ¹®Á¦   =============================\n");
-	printf("µ¶ÀÏ¿¡¼­ »ý»êµÈ ÄíÆä ½Â¿ëÂ÷ÀÇ Á¦·Î¹éÀÌ %4.1lf s¶ó°í ÇÕ´Ï´Ù.\n\n", zero_back1);
-	printf("(a) ÀÌ ÀÚµ¿Â÷ÀÇ °¡¼Óµµ´Â ¸î m/s^2ÀÎ°¡?\n\n");
-	printf("(b) ¾î´À Àü±âÀÚµ¿Â÷ÀÇ Á¦·Î¹éÀÌ %4.1lf s¶ó¸é ÀÌ¶§ °¡¼Óµµ´Â ¸î m/s^2ÀÎ°¡?\n\n", zero_back2);
-	printf("=================================================================\n\n\n\n\n");
-
-	if (solution == SHOW)
-	{
-		printf("(a) ÀÌ ÀÚµ¿Â÷ÀÇ °¡¼Óµµ´Â ¸î m/s^2ÀÎ°¡?\n\n");
-		printf("========================   Ç®ÀÌ   =============================\n");
-		printf("°ü·Ã °ø½ÄÀº °¡¼Óµµ °ø½Ä = (¥Äv / ¥Ät)ÀÔ´Ï´Ù.\n");
-		printf("¥Äv´Â xf(³ªÁß ¼Ó·Â) - xi(Ã³À½ ¼Ó·Â) ÀÌ¹Ç·Î\n");
-		printf("¥Äv = %6.2lf - %6.2lf ÀÔ´Ï´Ù. \n\n", vf1, vi1);
-		printf("¥Ät´Â tf(³ªÁß ½Ã°£) - ti(Ã³À½ ½Ã°£) ÀÌ¹Ç·Î.\n");
-		printf("¥Ät = %6.2lf - %6.2lf ÀÔ´Ï´Ù. \n\n", tf1, ti1);
-
-
-
-		printf("¹®Á¦ÀÇ ÇØ´äÀÎ °¡¼Óµµ¸¦ ±¸ÇÏ±â À§ÇØ¼­´Â km/h ¸¦ m/s^2 À¸·Î ´ÜÀ§¸¦ ¸ÂÃç¾ß ÇÕ´Ï´Ù. \n\n");
-		printf("1 km = 1000 m ·Î *1000 À» ÇØÁÖ°í h = 3600 s ÀÌ¹Ç·Î /3600 À¸·Î ÇØÁÝ´Ï´Ù. \n");
-		printf("°¡¼Óµµ a = 100 * 1000 / 3600m/s / 7.10s ÀÔ´Ï´Ù. \n", vf1, zero_back1);
-		printf("=================================================================\n\n");
-	}
-
-	if (answer == SHOW)
-	{
-		answer1 = ((vf1 * 1000 / 3600) - vi1) / (tf1 - ti1);
-		printf("=========================   Á¤ ´ä   =============================\n");
-		printf("°ü·Ã °ø½Ä (vf - vi) / (tf - ti) ¥Äx¿¡ ´ëÀÔÇÏ¸é");
-		printf("(100 * 1000 / 3600m/s / 7.10s) ÀÔ´Ï´Ù.\n\n", vf1, zero_back1);
-		printf("µû¶ó¼­ ÀÌ ÀÚµ¿Â÷ÀÇ °¡¼Óµµ(a)´Â %3.2lf m/s^2 ÀÔ´Ï´Ù.\n", answer1);
-		printf("=================================================================\n\n\n\n\n");
-	}
-
-
-
-	if (solution == SHOW)
-	{
-		tf2 = zero_back2;
-		printf("(b) ¾î´À Àü±âÀÚµ¿Â÷ÀÇ Á¦·Î¹éÀÌ %6.2lf s¶ó¸é ÀÌ¶§ °¡¼Óµµ´Â ¸î m/s^2ÀÎ°¡?\n\n", zero_back2);
-		printf("========================   Ç®ÀÌ   =============================\n");
-		printf("°ü·Ã °ø½ÄÀº °¡¼Óµµ °ø½Ä = (¥Äv / ¥Ät)ÀÔ´Ï´Ù.\n");
-		printf("¥Äv´Â xf(³ªÁß ¼Ó·Â) - xi(Ã³À½ ¼Ó·Â) ÀÌ¹Ç·Î\n");
-		printf("¥Äv = %6.2lf - %6.2lf ÀÔ´Ï´Ù. \n\n", vf2, vi2);
-		printf("¥Ät´Â tf(³ªÁß ½Ã°£) - ti(Ã³À½ ½Ã°£) ÀÌ¹Ç·Î\n");
-		printf("¥Äv = %6.2lf - %6.2lf ÀÔ´Ï´Ù. \n\n", tf2, ti2);
-
-
-
-		printf("(a)¹®Á¦¿Í ¶È°°ÀÌ ÇØ´äÀÎ °¡¼Óµµ¸¦ ±¸ÇÏ±â À§ÇØ¼­´Â km/h ¸¦ m/s^2 À¸·Î ´ÜÀ§¸¦ ¸ÂÃç¾ß ÇÕ´Ï´Ù. \n\n");
-		printf("1 km = 1000 m ·Î *1000 À» ÇØÁÖ°í h = 3600 s ÀÌ¹Ç·Î /3600 À» ÇØÁÝ´Ï´Ù. \n");
-		printf("±×·¯¹Ç·Î °ø½ÄÀÇ Ç®ÀÌ´Â 100 * 1000 / 3600m/s / 11.2s ÀÔ´Ï´Ù. \n", vf2, zero_back2);
-		printf("=================================================================\n");
-	}
-
-	if (answer == SHOW)
-	{
-		answer2 = ((vf2 * 1000 / 3600) - vi2) / (tf2 - ti2);
-		printf("=========================   Á¤ ´ä   =============================\n");
-		printf("°ü·Ã °ø½Ä (vf - vi) / (tf - ti) ¥Äx¿¡ ´ëÀÔÇÏ¸é");
-		printf("(100 * 1000 / 3600m/s / 11.2s) ÀÔ´Ï´Ù.\n\n", vf2, zero_back2);
-		printf("µû¶ó¼­ ÀÌ ÀÚµ¿Â÷ÀÇ °¡¼Óµµ(b)´Â %6.2lfm/s^2 ÀÔ´Ï´Ù.\n\n", answer2);
-		printf("=================================================================\n");
-	}
-}
-
-void Excersize_2_10(int solution, int answer)
-{
-
-
-	double v = 90.0;
-	double v1 = 110.0;
-	double v0 = 30.56;
-	double v2 = 25.0;
-	double a = 1.7;
-	double t = 3.06;
-
-	printf("\n\n");
-	printf("2_10 \n");
-	printf("°í¼Óµµ·Î¿¡¼­ ¾î¶² ÀÚµ¿Â÷°¡ ¾à %.2lf m/s^2 ÀÇ °¡¼Óµµ¸¦ ³¾ ¼ö ÀÖ´Ù.\n\n", a);
-
-	printf("ÀÌ ºñÀ²·Î %.2lf km/h ¿¡¼­ %.2lf km ·Î °¡¼ÓÇÏ´Â µ¥ °É¸® ´Â ½Ã°£Àº ¾ó¸¶³ª µÉ±î? \n\n", v, v1);
-
-
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=================================================================\n\n");
-
-		printf("°ü·Ã °ø½ÄÀº a=(v-v0)/¡Þt [½Ã°£=(ÃÖÁ¾¼Óµµ-ÃÊ±â¼Óµµ)/°¡¼Óµµ] ÀÌ´Ù.\n");
-		printf("v=ÃÖÁ¾¼Óµµ, v0=ÃÊ±â¼Óµµ , a=°¡¼Óµµ , ¡Þt=½Ã°£ \n");
-		printf("°¡¼Óµµ¿Í ÃÊ±â¼Óµµ , ÃÖÁ¾¼ÓµµÀÇ ¹ÌÅÍ¿Í ÃÊ°¡ ¾È¸ÂÀ¸´Ï ¸ÂÇôÁÝ´Ï´Ù. \n");
-		printf("ÃÊ±â ¼Óµµ = %.2lf km/h = %.2lf m/s , ÃÖÁ¾ ¼Óµµ = %.2lf km/h = %.2lf m/s ·Î ¹Ù²ãÁÝ´Ï´Ù. \n", v0, v2, v1, v);
-		printf("ÀÌ¶§ °¡¼Óµµ´Â µî°¡¼Óµµ¶ó°í °¡Á¤ÇÒ ¼ö ÀÖÀ¸¹Ç·Î ´ÙÀ½°ú °°Àº µî°¡¼Óµµ¿îµ¿ÀÇ °ø½ÄÀ» »ç¿ëÇÕ´Ï´Ù. \n");
-		printf("a=(v-v0)/¡Þt ¿¡¼­ t¸¦ ±¸ÇØ¾ßµÇ´Ï t¸¦ ³Ñ°ÜÁÝ´Ï´Ù. \n");
-		printf("³Ñ°ÜÁØ ¡Þt=(v-v0)/a °ø½Ä¿¡ ¹Ù²ãÁØ ¼ö¸¦ ´ëÀÔ ÇØ ÁÝ´Ï´Ù .\n");
-		printf("¡Þt = ( %.2lf m/s - %.2lf m/s) / %.2lf m/s^2 , ¡Þt = %.2lf s \n", v0, v2, a, t);
-		printf("ÀÌ ÀÚµ¿Â÷´Â %.2lf km/h ¿¡¼­ %.2lf km/h ·Î °¡¼ÓÇÏ´Âµ¥¿¡´Â \n", v, v1, t);
-
-
-		printf("\n=================================================================\n");
-		printf("\n\n\n");
-	}
-
-	if (answer == SHOW)
-	{
-		printf("=========================   Á¤ ´ä   =============================\n");
-
-		printf("µû¶ó¼­ ¡Þt=(v-v0)/a ¿¡´Â %.2lf °¡ ¼Ò¿äµÈ´Ù. \n", t);
-
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-}
-
-void Excersize_2_11(int solution, int answer)  // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú ¿øÀ¯ºó  2023.04.15 ¿Ï·á
-{
-	double velocity = 90;
-	double velocity_m_s = 0;
-	double distance = 50;
-	double acceleration = -6.25;
-	double velocity_i = 90;
-	double velocity_f = 0;
-	double x_displacement = 50;
-
-	printf("\n\n");
-	printf("2-11 \n");
-	printf("ÀÚµ¿Â÷ ÆÇ¸Å¿øÀÌ ¾î¶² ½ºÆ÷Ã÷Ä«ÀÇ ÀåÁ¡À» ¼³¸íÇÏ¿´´Ù.\n");
-	printf("ÀÌ ½ºÆ÷Ã÷Ä«´Â %6.2lf km/hÀÇ ¼Óµµ·Î ´Þ¸®´Ù°¡ ºê·¹ÀÌÅ©¸¦ ¹âÀº ÈÄ %6.2lf m ÀÌ³»¿¡¼­ Á¤ÁöÇÒ ¼ö ÀÖ´Â ¼º´ÉÀ» °®°í ÀÖ´Ù°í ÇÑ´Ù.\n\n", velocity, distance);
-	printf("(a) ÀÌ °æ¿ì ÀÚµ¿Â÷ÀÇ °¡¼Óµµ´Â ¸î m/s^2ÀÎ°¡?\n\n");
-
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=========================    Ç® ÀÌ   ============================\n");
-
-		printf("°ü·Ã °ø½ÄÀº v^2 - v0^2 = 2 * a * ¥Äx ÀÌ´Ù.\n");
-		printf("v´Â ³ªÁß ¼Óµµ, v0´Â Ã³À½ ¼Óµµ, a´Â °¡¼Óµµ, ¥Äx´Â À§Ä¡ÀÇ º¯È­·®ÀÌ´Ù.\n\n");
-
-		velocity_m_s = velocity * 1000 / 3600;
-
-		printf("¹®Á¦ÀÇ ÇØ´äÀÎ °¡¼Óµµ¸¦ ±¸ÇÏ±â À§ÇØ¼­´Â km/h ¸¦ m/s (À¸)·Î ´ÜÀ§¸¦ ¸ÂÃçÁà¾ß ÇÑ´Ù.\n");
-		printf("1 km = 1000 m·Î *1000 À»(¸¦) ÇØÁÖ°í h = 3600 s ÀÌ¹Ç·Î /3600 s À»(¸¦) ÇØÁØ´Ù.\n");
-		printf("±×·¯¹Ç·Î %6.2lf km/h = %6.2lf * 1000 / 3600 m/s = %6.2lf m/s ÀÌ´Ù.\n\n", velocity, velocity, velocity_m_s);
-
-		printf("ÀÌÈÄ¿¡ v, v0,¥Äx¸¦ ±¸ÇÏ°í ÀÌ¸¦ È°¿ëÇÏ¿© a¸¦ ±¸ÇØÁÖ¸é µÈ´Ù.\n");
-		printf("v´Â ³ªÁß ¼Óµµ·Î ºê·¹ÀÌÅ©¸¦ ¹âÀº ÈÄ Á¤ÁöÇßÀ» ¶§ ¼ÓµµÀÌ¹Ç·Î v = %6.2lf m/s ÀÌ´Ù.\n", velocity_f);
-		printf("v0´Â Ã³À½ ¼Óµµ·Î %6.2lf km/h ´Þ¸®´ø ÀÚµ¿Â÷ÀÇ ¼Óµµ·Î v = %6.2lf m/s ÀÌ´Ù.\n", velocity, velocity_i);
-		printf("¥Äx´Â À§Ä¡ÀÇ º¯È­·®À¸·Î %6.2lf m À»(¸¦) ¿òÁ÷¿´À¸¹Ç·Î ¥Äx = %6.2lf m ÀÌ´Ù.\n", distance, x_displacement);
-
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-	if (answer == SHOW)
-	{
-		printf("=========================   Á¤ ´ä   =============================\n");
-
-		printf("°ü·Ã °ø½Ä v^2 - v0^2 = 2 * a * ¥Äx¿¡ ´ëÀÔÇÏ¸é\n");
-		printf("(%6.2lf m/s)^2 - (%6.2lf m/s)^2 = 2 * a * %6.2lf m ÀÌ´Ù.\n", velocity_f, velocity_m_s, x_displacement);
-		printf("µû¶ó¼­ a¿¡ ´ëÇØ Á¤¸®¸¦ ÇÏ¸é a = %6.2lf m/s^2 ÀÌ´Ù\n", acceleration);
-
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-}
-
-void Excersize_2_15(int solution, int answer)  // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú ÀÌÀçÇõ  2023.04.15 ¹Ì¿Ï·á
+void Excersize_2_15(int solution, int answer)
 {
 	double velocity = 120.0;
 	double velocity0 = 0;
@@ -557,29 +28,29 @@ void Excersize_2_15(int solution, int answer)  // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú 
 
 	printf("\n\n");
 	printf("2-15 \n");
-	printf("¼ÒÇüºñÇà±â°¡ ÀÌ·úÇÏ±â À§ÇØ ÇÊ¿äÇÑ ¼Ó·ÂÀº %4.2lf km/hÀÌ´Ù.\n\n", velocity);  // %5.2lf·Î ¾Æ·¡µµ ÅëÀÏÇÒ°Í
-	printf("(a) ÀÌ ºñÇà±â°¡ È°ÁÖ·Î¸¦ %4.2lf m ´Þ¸° ÈÄ ÀÌ·úÇÏ±â À§ÇØ ÇÊ¿äÇÑ ÃÖ¼ÒÀÇ °¡¼Óµµ´Â ¾ó¸¶ÀÎ°¡? \n\n", distance);
-	printf("(b) ÀÌ·úÇÏ´Â µ¥ °É¸®´Â ½Ã°£Àº ¾ó¸¶ÀÎ°¡? \n\n");
+	printf("ì†Œí˜•ë¹„í–‰ê¸°ê°€ ì´ë¥™í•˜ê¸° ìœ„í•´ í•„ìš”í•œ ì†ë ¥ì€ %4.2lf km/hì´ë‹¤.\n\n", velocity);  // %5.2lfë¡œ ì•„ëž˜ë„ í†µì¼í• ê²ƒ
+	printf("(a) ì´ ë¹„í–‰ê¸°ê°€ í™œì£¼ë¡œë¥¼ %4.2lf m ë‹¬ë¦° í›„ ì´ë¥™í•˜ê¸° ìœ„í•´ í•„ìš”í•œ ìµœì†Œì˜ ê°€ì†ë„ëŠ” ì–¼ë§ˆì¸ê°€? \n\n", distance);
+	printf("(b) ì´ë¥™í•˜ëŠ” ë° ê±¸ë¦¬ëŠ” ì‹œê°„ì€ ì–¼ë§ˆì¸ê°€? \n\n");
 
 	if (solution == SHOW)
 	{
 		printf("\n\n\n");
 		printf("=================================================================\n");
 		// your code here
-		printf("(a) ÀÌ ºñÇà±â°¡ È°ÁÖ·Î¸¦ %4.2lf m ´Þ¸° ÈÄ ÀÌ·úÇÏ±â À§ÇØ ÇÊ¿äÇÑ ÃÖ¼ÒÀÇ °¡¼Óµµ´Â ¾ó¸¶ÀÎ°¡? \n\n", distance);
+		printf("(a) ì´ ë¹„í–‰ê¸°ê°€ í™œì£¼ë¡œë¥¼ %4.2lf m ë‹¬ë¦° í›„ ì´ë¥™í•˜ê¸° ìœ„í•´ í•„ìš”í•œ ìµœì†Œì˜ ê°€ì†ë„ëŠ” ì–¼ë§ˆì¸ê°€? \n\n", distance);
 
-		printf("°ü·Ã °ø½ÄÀº v^2 - v0^2 = 2 * a * ¥Äx ÀÔ´Ï´Ù.\n");  //¹ØÀÇ °ø½Äµµ ÀÌ·¸°Ô ¹Ù²Ù¼¼¿ä
+		printf("ê´€ë ¨ ê³µì‹ì€ v^2 - v0^2 = 2 * a * Î”x ìž…ë‹ˆë‹¤.\n");  //ë°‘ì˜ ê³µì‹ë„ ì´ë ‡ê²Œ ë°”ê¾¸ì„¸ìš”
 
-		printf("¼ÓµµÀÇ ´ÜÀ§ km/h ¸¦ m/s ·Î ¹Ù²ã¾ß ÇÕ´Ï´Ù.\n");
-		printf("1km * 1000 m / 1h * 3600 s = 1 / 3.6À¸·Î ³ª´²ÁÝ´Ï´Ù.\n");
+		printf("ì†ë„ì˜ ë‹¨ìœ„ km/h ë¥¼ m/s ë¡œ ë°”ê¿”ì•¼ í•©ë‹ˆë‹¤.\n");
+		printf("1km * 1000 m / 1h * 3600 s = 1 / 3.6ìœ¼ë¡œ ë‚˜ëˆ ì¤ë‹ˆë‹¤.\n");
 		velocity_m = velocity * m / s;
-		printf("µû¶ó¼­ %4.2lf km/h = %4.2lf km/h / 3.6 = %4.2lf m/s ÀÔ´Ï´Ù.\n\n", velocity, velocity, velocity_m);
+		printf("ë”°ë¼ì„œ %4.2lf km/h = %4.2lf km/h / 3.6 = %4.2lf m/s ìž…ë‹ˆë‹¤.\n\n", velocity, velocity, velocity_m);
 
-		printf("v^2Àº ³ªÁß¼Óµµ ÀÌ¹Ç·Î %4.2lf m/s^2 ÀÌ°í,\n", velocity_m);   // 120Àº ³ªÁß¿¡ ÀÚµ¿À» ¹Ù²ð °ªÀÌ¹Ç·Î º¯¼ö·Î ¹Ù²Ü°Í
-		printf("v0^2Àº Ã³À½¼Óµµ ÀÌ¹Ç·Î 0 m/s ÀÔ´Ï´Ù.\n");
-		printf("v^2 - v0^2 =  %4.2lf m/s ÀÔ´Ï´Ù.\n\n", pow(velocity_m, 2));
+		printf("v^2ì€ ë‚˜ì¤‘ì†ë„ ì´ë¯€ë¡œ %4.2lf m/s^2 ì´ê³ ,\n", velocity_m);   // 120ì€ ë‚˜ì¤‘ì— ìžë™ì„ ë°”ë€” ê°’ì´ë¯€ë¡œ ë³€ìˆ˜ë¡œ ë°”ê¿€ê²ƒ
+		printf("v0^2ì€ ì²˜ìŒì†ë„ ì´ë¯€ë¡œ 0 m/s ìž…ë‹ˆë‹¤.\n");
+		printf("v^2 - v0^2 =  %4.2lf m/s ìž…ë‹ˆë‹¤.\n\n", pow(velocity_m, 2));
 
-		printf("2 * a * x ¿¡¼­ x´Â °Å¸® %4.2lf mÀ» ¸»ÇÕ´Ï´Ù.\n\n", distance);
+		printf("2 * a * x ì—ì„œ xëŠ” ê±°ë¦¬ %4.2lf mì„ ë§í•©ë‹ˆë‹¤.\n\n", distance);
 
 		a = pow(velocity_m, 2) / (2 * distance);
 
@@ -589,12 +60,12 @@ void Excersize_2_15(int solution, int answer)  // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú 
 	}
 	if (answer == SHOW)
 	{
-		printf("=========================   Á¤ ´ä   =============================\n");  // °ø½Ä ¹Ù²Ù°í
+		printf("=========================   ì • ë‹µ   =============================\n");  // ê³µì‹ ë°”ê¾¸ê³ 
 
-		printf("°ø½Ä v^2 - v0^2 = 2 * a * ¥Äx ¿¡ ´ëÀÔÇÏ¸é\n");  //¹ØÀÇ °ø½Äµµ ÀÌ·¸°Ô ¹Ù²Ù¼¼¿ä
-		printf("%4.2lf m/s^2 - %4.2lf^2 = 2 * a * %4.2lf m ÀÔ´Ï´Ù.\n", velocity_m, velocity0, distance);
+		printf("ê³µì‹ v^2 - v0^2 = 2 * a * Î”x ì— ëŒ€ìž…í•˜ë©´\n");  //ë°‘ì˜ ê³µì‹ë„ ì´ë ‡ê²Œ ë°”ê¾¸ì„¸ìš”
+		printf("%4.2lf m/s^2 - %4.2lf^2 = 2 * a * %4.2lf m ìž…ë‹ˆë‹¤.\n", velocity_m, velocity0, distance);
 		printf("a = %4.2lf m/s^2 / (2 * %4.2lf m)\n\n", velocity_m, distance, a);
-		printf("´ä: a = %4.2lf m/s^2 \n\n", a);
+		printf("ë‹µ: a = %4.2lf m/s^2 \n\n", a);
 
 		printf("=================================================================\n");
 		printf("\n\n\n");
@@ -604,11 +75,11 @@ void Excersize_2_15(int solution, int answer)  // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú 
 	{
 		printf("\n\n\n");
 		printf("=================================================================\n");
-		printf("(b)¿¡¼­ ±¸ÇÏ¿©¾ß ÇÏ´Â °ÍÀº ½Ã°£ ÀÔ´Ï´Ù.\n\n");
+		printf("(b)ì—ì„œ êµ¬í•˜ì—¬ì•¼ í•˜ëŠ” ê²ƒì€ ì‹œê°„ ìž…ë‹ˆë‹¤.\n\n");
 
-		printf("(b)¿¡¼­ ÇÊ¿äÇÑ °ø½ÄÀº v = v0 + a * t ÀÔ´Ï´Ù.\n");
-		printf("v = %4.2lf m/s, v0 = %4.2lf m/s, a = %4.2lf m/s^2 ÀÔ´Ï´Ù.\n", velocity_m, velocity0, a);
-		printf("½Ã°£À» ±¸ÇØ¾ß ÇÏ¹Ç·Î ½Ã°£(t)¿¡ ´ëÇÑ ½ÄÀ¸·Î Á¤¸®ÇÏ¸é t = (v / 3.6)^2 / a °¡ µË´Ï´Ù.\n");
+		printf("(b)ì—ì„œ í•„ìš”í•œ ê³µì‹ì€ v = v0 + a * t ìž…ë‹ˆë‹¤.\n");
+		printf("v = %4.2lf m/s, v0 = %4.2lf m/s, a = %4.2lf m/s^2 ìž…ë‹ˆë‹¤.\n", velocity_m, velocity0, a);
+		printf("ì‹œê°„ì„ êµ¬í•´ì•¼ í•˜ë¯€ë¡œ ì‹œê°„(t)ì— ëŒ€í•œ ì‹ìœ¼ë¡œ ì •ë¦¬í•˜ë©´ t = (v / 3.6)^2 / a ê°€ ë©ë‹ˆë‹¤.\n");
 
 		t = ((velocity * m) / s) / a;
 
@@ -618,318 +89,19 @@ void Excersize_2_15(int solution, int answer)  // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú 
 	}
 	if (answer == SHOW)
 	{
-		printf("=========================   Á¤ ´ä   =============================\n\n");
+		printf("=========================   ì • ë‹µ   =============================\n\n");
 
-		printf("°ø½Ä v = v0 + a * t À»(¸¦)\n");
-		printf("½Ã°£(t)¿¡ ´ëÇÑ ½ÄÀ¸·Î Á¤¸®ÇÏ¸é t = (v - v0) / a °¡ µÇ°í\n");
-		printf("t = (%4.2lf m/s - %4.2lf m/s) / %4.2lf m/s^2 °¡ µË´Ï´Ù.\n", velocity_m, velocity0, a);
+		printf("ê³µì‹ v = v0 + a * t ì„(ë¥¼)\n");
+		printf("ì‹œê°„(t)ì— ëŒ€í•œ ì‹ìœ¼ë¡œ ì •ë¦¬í•˜ë©´ t = (v - v0) / a ê°€ ë˜ê³ \n");
+		printf("t = (%4.2lf m/s - %4.2lf m/s) / %4.2lf m/s^2 ê°€ ë©ë‹ˆë‹¤.\n", velocity_m, velocity0, a);
 
-		printf("´ä: %4.2lf s\n\n", t);
+		printf("ë‹µ: %4.2lf s\n\n", t);
 
 		printf("=================================================================\n");
 		printf("\n\n\n");
 	}
 
 }
-
-
-void Excersize_2_19(int solution, int answer) // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú ÃÖÁØÇõ  2023.04.16 ¿Ï·á
-{
-	double velocity = 120;
-	double police_velocity = 0;
-	double acceleration = 10;
-	double converted_acceleration = 2.78;
-	double distance = velocity / 3.6;
-	double a, b, c = 0, d, e = 0.0;
-
-	a = 0.5 * converted_acceleration;
-	b = -1 * (velocity / 3.6);
-	d = b * b - 4.0 * a * c;
-	e = sqrt(d);
-
-	printf("\n\n");
-	printf("2-19 \n");
-	printf("%.lf km/hÀÇ ¼Ó·ÂÀ¸·Î ´Þ¸®´Â °ú¼Ó ¿îÀüÀÚ°¡ Á¤ÁöÇØ ÀÖ´Â °æÂû°üÀ» Áö³ªÃÆ´Ù.\n", velocity);
-	printf("ÀÌ °æÂû°üÀº Áï½Ã ÀÏÁ¤ÇÑ °¡¼Óµµ %.lf km/h/s·Î(È¥ÇÕµÈ ´ÜÀ§¸¦ À¯ÀÇÇÏ¶ó) ÂÑ¾Æ°¡±â ½ÃÀÛÇÏ¿´´Ù.\n\n", acceleration);
-	printf("(a) °ú¼Ó ¿îÀüÀÚ°¡ ÀÏÁ¤ÇÑ ¼Ó·ÂÀ» À¯ÁöÇÑ´Ù°í °¡Á¤ÇÏ¸é °æÂû°üÀÌ °ú¼Ó ¿îÀüÀÚ¸¦ ºÙÀâ´Â µ¥ °É¸° ½Ã°£Àº ¾ó¸¶ÀÎ°¡?\n\n");
-
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=========================    Ç® ÀÌ   ============================\n");
-		printf("(a) ¹®Á¦¸¦ Ç®±â À§ÇØ¼­´Â È¥ÇÕµÈ ´ÜÀ§ÀÇ °¡¼Óµµ¸¦ Á¤¸®ÇØ¾ß ÇÕ´Ï´Ù. \n");
-		printf("km/h/s¸¦ m/s·Î º¯È¯ÇÕ´Ï´Ù.\n\n");
-
-		printf("a = %.lf km/h/s = %.lf km/h/s * 1000m/1km * 1h/3600s * 1/s = %.2lf m/s^2\n\n", acceleration, acceleration, converted_acceleration);
-
-		printf("°ú¼Ó ¿îÀüÀÚ°¡ tÃÊ µ¿¾È ´Þ¸° °Å¸®´Â ´ÙÀ½°ú °°½À´Ï´Ù. (x1):\n");
-		printf("x1 = v0t + 1/2 * a * t^2 = %.1lf m\n\n ", velocity / 3.6);
-
-		printf("°æÂûÂ÷°¡ tÃÊ µ¿¾È ´Þ¸° °Å¸®´Â ´ÙÀ½°ú °°½À´Ï´Ù. (x2):\n");
-		printf("x2 = x0 + v0t + 1/2 * a * t^2 = 1/2 * %.1lf * t^2 m\n\n", velocity / 3.6);
-
-		printf("°ú¼Ó ¿îÀüÀÚ°¡ ºÙÀâÈ÷´Â ¼ø°£Àº µÎ ÀÚµ¿Â÷ÀÇ °Å¸®°¡ °°À» ¶§ÀÔ´Ï´Ù.\n");
-		printf("%.1lf m/s = 1/2 * %.2lf m/s^2 * t^2\n\n", velocity / 3.6, converted_acceleration, acceleration / 3.6);
-
-		printf("µÎ ½ÄÀÇ ÀÌÂ÷¹æÁ¤½Ä : t^2 + %.2lft - %.1lf = 0\n", converted_acceleration, velocity / 3.6);
-		printf("ÀÌÂ÷¹æÁ¤½ÄÀÇ ÇØ¸¦ ±¸ÇÏ¸é x1 = %.lf s, x2 = %.lf sÀÔ´Ï´Ù.\n", (-b + e) / (2.0 * a), (-b - e) / (2.0 * a));
-		printf("ÀÌ¶§ Ã³À½ ´Þ¸®±â ½ÃÀÛÇÑ ½Ã°£ÀÎ 0 s´Â ´äÀÌ µÉ ¼ö ¾ø½À´Ï´Ù.\n\n ");
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-
-	if (answer == SHOW)
-	{
-		printf("=========================   Á¤ ´ä   =============================\n");
-		if ((-b + e) / (2.0 * a) >= (-b - e) / (2.0 * a)) {
-			printf("(a) °æÂû°üÀÌ °ú¼Ó ¿îÀüÀÚ¸¦ ºÙÀâ´Â µ¥ °É¸° ½Ã°£Àº t = %.lf s ÀÔ´Ï´Ù.\n\n", (-b + e) / (2.0 * a));
-			distance = distance * round((-b + e) / (2.0 * a));
-		}
-		else {
-			printf("(a) °æÂû°üÀÌ °ú¼Ó ¿îÀüÀÚ¸¦ ºÙÀâ´Â µ¥ °É¸° ½Ã°£Àº t = %.lf s ÀÔ´Ï´Ù.\n\n", (-b - e) / (2.0 * a));
-			distance = distance * round((-b - e) / (2.0 * a));
-		}
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-	printf("(b) ÀÌ¶§ °æÂû°üÀº ¾ó¸¶³ª »¡¸® ´Þ·È°Ú´Â°¡?\n\n");
-
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=========================    Ç® ÀÌ   ============================\n");
-		printf("¼Óµµ¸¦ ±¸ÇÏ±â À§ÇØ¼­´Â v^2 - v0^2 = 2as °ø½ÄÀ» »ç¿ëÇØ¾ß ÇÕ´Ï´Ù.\n");
-		printf("ÀÌ¶§ v0^2´Â Ã³À½¼Óµµ·Î, Â÷°¡ Á¤ÁöÇØ ÀÖ´Ù°¡ Ãâ¹ßÇß±â ¶§¹®¿¡ 0 ÀÔ´Ï´Ù.\n");
-		printf("v^2 = 2 * %.2lf m/s * %.lf m\n", converted_acceleration, distance);
-		police_velocity = sqrt(2 * converted_acceleration * distance);
-		printf("ÀÌ¶§ v^2 ÀÌ¹Ç·Î v = sqrt(%.lf m/s) = %.lf m/s\n", 2 * converted_acceleration * distance, police_velocity);
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-	if (answer == SHOW)
-	{
-		printf("=========================   Á¤ ´ä   =============================\n");
-		printf("(b) °æÂûÂ÷ÀÇ ¼Óµµ´Â ´ÙÀ½°ú °°½À´Ï´Ù.\n");
-		printf("v = %.1lf m/s = %.lf km/h\n\n", police_velocity, police_velocity * 3.6);
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-}
-
-
-void Excersize_2_21(int solution, int answer)  // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú °íÁöÈ¯ 2023.04.16 ¿Ï·á
-{
-	double h = 380;
-	double h0 = 0;
-	double g = 9.8;
-	double t = 0;
-	double v = 0;
-	double v0 = 0;
-	double y0 = 0;
-	double initialvelocity = 0;
-
-	printf("\n\n");
-	printf("2-21 \n");
-	printf("¸¸¾à ³ôÀÌ°¡ %6.2lf mÀÎ ºôµù ¿Á»ó¿¡¼­ Áö¸éÀ» ÇâÇØ ¼öÁ÷À¸·Î ¹°Ã¼¸¦ ³«ÇÏ½ÃÄ×´Ù°í ÇÏÀÚ.\n\n", h);
-	printf("(a) ÀÌ ¹°Ã¼°¡ Áö¸é¿¡ ¶³¾îÁö´Â µ¥±îÁö °É¸®´Â ½Ã°£À» ±¸ÇÏ¶ó.\n\n");
-
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=========================   Ç® ÀÌ   =============================\n\n");
-		printf("°ü·Ã°ø½ÄÀº y = y0 + v0 * t + 1/2 * a * t^2ÀÔ´Ï´Ù. \n");
-		printf("y´Â ³ôÀÌ, y0´Â Ã³À½³ôÀÌ, v0´Â Ã³À½¼Óµµ, t´Â ½Ã°£, a´Â °¡¼ÓµµÀÔ´Ï´Ù.\n");
-		printf("ÀÚÀ¯³«ÇÏ ¿îµ¿ÀÌ¹Ç·Î °¡¼Óµµ(=a)´Â Áß·Â°¡¼Óµµ(=g)·Î º¯È¯µË´Ï´Ù.\n");
-		printf("Áß·Â°¡¼Óµµ´Â %6.2lf m/s^ 2ÀÔ´Ï´Ù.\n", g);
-		printf("°ü·Ã°ø½Ä¿¡ Áß·Â°¡¼Óµµ¸¦ ´ëÀÔÇÏ¿© y = y0 + v0 * t + 1/2 * g * t ^ 2À¸·Î ½Ä º¯È¯ÀÌ µË´Ï´Ù.\n");
-		printf("v0´Â Ã³À½¼ÓµµÀÌ¹Ç·Î %6.2lf m/s ÀÔ´Ï´Ù.\n", initialvelocity);
-		printf("ÀÌÈÄ¿¡ ½ÄÀ» Á¤¸®ÇÏ¿© t°ªÀ» ±¸ÇØÁÖ¸é µÈ´Ù.\n");
-		printf("½ÄÀº %6.2lf m = %6.2lf m + %6.2lf m/s * t + 1/2 * %6.2lf m/s^2 * t^ 2°¡ µË´Ï´Ù.\n", h, y0, v0, g);
-		printf("½ÄÀº %6.2lf m = 1/2 * %6.2lf m/s^2 * t^2 ÀÔ´Ï´Ù.\n", h, g);
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-	if (answer == SHOW)
-	{
-		printf("=========================   Á¤ ´ä   =============================\n");
-
-		t = sqrt(2 * h / g);
-		printf("°ü·Ã°ø½ÄÀ» Á¤¸®ÇÑ %6.2lf m = 1/2 * %6.2lf m/s^2 * t^2 ½Ä¿¡ ´ëÀÔÇÏ¸é\n\n", h, g);
-		printf("µû¶ó¼­ t = sqrt(2 * %6.2lf m / %6.2lf m/s^2)ÀÌ´Ù.\n\n", h, g);
-		printf("±×·¯¹Ç·Î (2 * %6.2lf m / %6.2lf m/s^2)À» Ç®¸é %6.2lf sÀÇ °ªÀÌ ³ª¿Â´Ù.\n\n", h, g, t);
-
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-	printf("(b) Áö¸é¿¡ µµ´ÞÇÏ±â Á÷ÀüÀÇ ¼Óµµ¸¦ ±¸ÇÏ¶ó.\n\n");
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=========================   Ç® ÀÌ   =============================\n\n");
-		printf("°ü·Ã °ø½ÄÀº  v = v0 + a * tÀÔ´Ï´Ù. \n");
-		printf("v´Â ³ªÁß¼Óµµ, v0´Â Ã³À½¼Óµµ, a´Â °¡¼Óµµ, t´Â ½Ã°£ÀÔ´Ï´Ù.\n");
-		printf("ÀÚÀ¯³«ÇÏ ¿îµ¿ÀÌ¹Ç·Î °¡¼Óµµ(=a)´Â Áß·Â°¡¼Óµµ(=g)·Î º¯È¯µË´Ï´Ù.\n");
-		printf("Áß·Â°¡¼Óµµ´Â %6.2lf m/s^ 2ÀÔ´Ï´Ù.\n", g);
-		printf("°ü·Ã°ø½Ä¿¡ Áß·Â°¡¼Óµµ¸¦ ´ëÀÔÇÏ¿© v = v0 + g * tÀ¸·Î ½Ä º¯È¯ÀÌ µË´Ï´Ù.\n");
-		printf("v0´Â Ã³À½ ¼ÓµµÀÌ¹Ç·Î %6.2lf m/sÀÌ´Ù.\n", initialvelocity);
-		printf("ÀÌÈÄ¿¡ ½ÄÀ» Á¤¸®ÇÏ¿© ³ªÁß¼Óµµ°ªÀ» ±¸ÇØÁÖ¸é µÈ´Ù.\n");
-		printf("½ÄÀº v = %6.2lf m + %6.2lf m/s^2 * t°¡ µË´Ï´Ù.\n", v0, g);
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-	if (answer == SHOW)
-	{
-		printf("=========================   Á¤ ´ä   =============================\n");
-		t = sqrt(2 * h / g);
-		v = g * t;
-		printf("°ü·Ã°ø½ÄÀ» Á¤¸®ÇÑ v = %6.2lf m + %6.2lf m/s^2 * t ½Ä¿¡ ´ëÀÔÇÏ¸é\n\n", v0, g);
-		printf("µû¶ó¼­ ¹®Á¦ a ¿¡¼­ ±¸ÇÑ ½Ã°£(t)¸¦ ´ëÀÔÇÏ¿© v = %6.2lf m + %6.2lf m/s^2 * %6.2lf m/s^2 ÀÔ´Ï´Ù.\n\n", v0, g, t);
-		printf("±×·¯¹Ç·Î %6.2lf m/s^2 * %6.2lf m/s^2 ½ÄÀ» Á¤¸®ÇÏ°í  %6.2lf m¸¦ ´õÇÏ°Ô µÇ¸é ¼Óµµ´Â %6.2lf m/sÀÌ´Ù. \n", g, t, v0, v);
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-}
-
-
-void Excersize_2_25(int solution, int answer)    // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú ÃÖÁØÇõ 2023.04.16 ¿Ï·á
-{
-	double velocity = 5.50;
-	double height = 100;
-	double gravity_accel = 9.80;
-	double time = 0.0;
-
-	double a, b, c = 0, d, e = 0.0;
-
-	a = -gravity_accel / 2;
-	b = velocity;
-	c = height;
-	d = b * b - 4.0 * a * c;
-	e = sqrt(d);
-
-	printf("\n\n");
-	printf("2-25 \n");
-	printf("ÇÛ¸®ÄßÅÍ°¡ %.2lf km/hÀÇ ¼Ó·ÂÀ¸·Î ¼öÁ÷ÇÏ°Ô ¿Ã¶ó°¡°í ÀÖ´Ù.\n", velocity);
-	printf("Áö¸éÀ¸·ÎºÎÅÍ %.lf m ³ôÀÌ¿¡¼­ Ã¢¹®À» ÅëÇØ »óÀÚ¸¦ ¶³¾î¶ß·È´Ù.\n\n", height);
-	printf("±× »óÀÚ°¡ Áö¸é¿¡ Áö¸é¿¡ µµ´ÞÇÏ´Â µ¥ °É¸®´Â ½Ã°£Àº ¾ó¸¶ÀÎ°¡?\n\n");
-
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=========================    Ç® ÀÌ   ============================\n");
-		printf("¿¬Á÷ À§·Î ´øÁø ¹°Ã¼ÀÇ ¿îµ¿ÀÔ´Ï´Ù. \n");
-		printf("yÃà¿¡ ´ëÇÑ ¼öÁ÷ ¼ººÐ¸¸ °í·ÁÇÕ´Ï´Ù.\n\n");
-
-		printf("½Ã°£À» ±¸ÇÏ±â À§ÇØ¼­´Â y = y0 + v0t + 1/2 * (-g) * t^2 °ø½ÄÀ» »ç¿ëÇÕ´Ï´Ù.\n");
-		printf("ÃÖ°íÁ¡¿¡¼­ºÎÅÍ »óÀÚ°¡ ³«ÇÏÇÏ°í, Áö¸é¿¡ µµ´ÞÇÑ ½Ã°£À» ±¸ÇÏ´Â °ÍÀÌ±â ¶§¹®¿¡ y¿Í y0´Â 0ÀÔ´Ï´Ù.\n\n");
-
-		printf("Á¤¸®µÈ ÀÌÂ÷¹æÁ¤½Ä : 1/2 * %.2lf m/s^2 * t^2 + %.2lf m/s * t + %.lf = 0\n\n", -gravity_accel, velocity, height);
-		printf("ÀÌÂ÷¹æÁ¤½ÄÀÇ ÇØ¸¦ ±¸ÇÏ¸é t1 = %.1lf s, t2 = %.1lf s ÀÔ´Ï´Ù.\n", (-b + e) / (2.0 * a), (-b - e) / (2.0 * a));
-		printf("ÀÌ¶§ ½Ã°£Àº À½¼ö°¡ µÉ ¼ö ¾ø½À´Ï´Ù.\n\n");
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-
-
-	if (answer == SHOW)
-	{
-		printf("=========================   Á¤ ´ä   =============================\n");
-		if ((-b + e) / (2.0 * a) > 0) {
-			time = (-b + e) / (2.0 * a);
-			printf("»óÀÚ´Â %.1lf ÃÊ µÚ¿¡ Áö¸é¿¡ µµ´ÞÇÕ´Ï´Ù.\n\n", time);
-		}
-		else if ((-b - e) / (2.0 * a) > 0){
-			time = (-b - e) / (2.0 * a);
-			printf("»óÀÚ´Â %.1lf s µÚ¿¡ Áö¸é¿¡ µµ´ÞÇÕ´Ï´Ù.\n\n", time);
-		}
-		else {
-			printf("°ªÀÌ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.\n\n");
-		}
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-}
-void Excersize_2_28(int solution, int answer)  // ÇÑ¶ó´ëÇÐ±³ ¹Ì·¡¸ðºô¸®Æ¼°øÇÐ°ú ¾È¼ºÈ£ 2023.04.16 ¿Ï·á
-{
-	double speed = 49;
-	double g = 9.80;      // g´Â gravitational_acceleration(Áß·Â °¡¼Óµµ).
-	double time2 = 0;      // time2 ´Â ¹°Ã¼°¡ ´Ù½Ã Áö¸é¿¡¼­ ¶³¾îÁö´Â µ¥ °É¸®´Â ½Ã°£
-	double time1 = 0;
-	double H = 0;          // H´Â ÃÖ°í ³ôÀÌ.
-	double ¥Äy = 0;
-	¥Äy = H;
-	printf("\n\n");
-	printf("2-28 \n");
-	printf("ÃÊ¼Óµµ  m/s·Î ¿¬Á÷ À§·Î ´øÁø ¹°Ã¼°¡ ÀÖ´Ù. \n\n");
-
-	printf("(a) ÀÌ ¹°Ã¼°¡ ¿Ã¶ó°¥ ¼ö ÀÖ´Â ÃÖ°í³ôÀÌ H´Â ¾ó¸¶ÀÎ°¡? \n\n");
-
-	printf("(b) ÀÌ ¹°Ã¼°¡ ´Ù½Ã Áö¸é¿¡¼­ ¶³¾îÁö´Â µ¥ °É¸®´Â ½Ã°£Àº ¾ó¸¶ÀÎ°¡? \n");
-
-
-	if (solution == SHOW)
-	{
-		printf("\n\n\n");
-		printf("=========================   Ç® ÀÌ   =============================\n\n");
-				
-		printf("ÃÖ°í ³ôÀÌÀÇ ´ëÇÑ °ø½ÄÀº ÃÖ°í ³ôÀÌ ¼ÓµµÀÇ Á¦°ö - ´øÁ³À»¶§ ¼ÓµµÀÇ Á¦°ö = 2 * °¡¼Óµµ * ÃÖ°í ³ôÀÌ - ½ÃÀÛ ³ôÀÌ \n");
-		printf("v^2 - v0^2 = 2 * a * ¥Äy ÀÔ´Ï´Ù.\n\n");
-		printf("ÃÖ°í ³ôÀÌ¿¡¼­ÀÇ ¼Óµµ´Â 0m/s ÀÌ¹Ç·Î. \n\n");		
-		printf("ÃÖ°í ³ôÀÌ¿¡ °üÇÑ ½ÄÀ¸·Î Ç¥ÇöÇÏ¸é ÃÖ°í ³ôÀÌ = ´øÁ³À»¶§ ¼ÓµµÁ¦°ö / 2 * °¡¼Óµµ \n");
-		printf("¥Äy = v0^2 / 2 * a \n\n");
-		H = pow(speed, 2) / (g * 2);
-		printf("ÃÖ°í ³ôÀÌ %0.1lf m = ´øÁ³À»¶§ ¼ÓµµÁ¦°ö %.0lf m/s / (2 * °¡¼Óµµ %.2lf) m/s^2\n\n", H, speed, g);
-
-	}
-
-	if (answer == SHOW)
-	{
-
-		printf("=========================   Á¤ ´ä   =============================\n\n");
-
-		printf("ÃÖ°í ³ôÀÌ´Â%0.1lf m\n\n", H);
-
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-	if (solution == SHOW)
-	{
-
-		printf("=========================   Ç® ÀÌ   =============================\n\n");
-
-		printf("(b) ÀÌ ¹°Ã¼°¡ ´Ù½Ã Áö¸é¿¡¼­ ¶³¾îÁö´Â µ¥ °É¸®´Â ½Ã°£Àº ¾ó¸¶ÀÎ°¡? \n\n");
-		printf("¸ÕÀú ÃÖ´ë ³ôÀÌ µµ´Þ½Ã°£ °ø½ÄÀ» ±¸ÇÏ¼¼¿ä. \n\n");
-		printf("ÃÖ´ë ³ôÀÌ µµ´Þ½Ã°£ °ø½ÄÀº : ÃÖ°í ³ôÀÌÀÇ ¼Óµµ = ´øÁ³À»¶§ ¼Óµµ + (°¡¼Óµµ * ÃÖ°í ³ôÀÌ µµ´Þ ½Ã°£) \n");
-		printf("v = v0 + a * t \n\n");
-		printf("ÃÖ°í ³ôÀÌÀÇ ¼ÓµµÀº 0m/sÀÌ¹Ç·Î °ø½ÄÀ» ÃÖ´ë ³ôÀÌ µµ´Þ½Ã°£À¸·Î ¸¸µé¸é: \n");
-		printf("ÃÖ°í ³ôÀÌ µµ´Þ ½Ã°£ = ´øÁ³À»¶§ ¼Óµµ / °¡¼Óµµ \n\n");
-		printf("t = v0 / a \n\n");
-		time1 = speed / g;
-		printf("ÃÖ°í ³ôÀÌ µµ´Þ½Ã°£ %.0lf s= ´øÁ³À»¶§ ¼Óµµ %.0lf m/s / Áß·Â °¡¼Óµµ %.2lf m/s^2\n\n", time1, speed, g);
-		printf("¹°Ã¼°¡ ´Ù½Ã Áö¸é¿¡¼­ ¶³¾îÁö´Â µ¥ °É¸®´Â ½Ã°£Àº ÃÖ°íÁ¡ µµ´Þ ½Ã°£¿¡ * 2 ÇÑ °ªÀÌ¹Ç·Î: \n\n");
-		time2 = time1 * 2;
-		printf("ÃÖ°í ³ôÀÌ µµ´Þ½Ã°£ %.0lf s * 2 = ¹°Ã¼°¡ ´Ù½Ã Áö¸é¿¡¼­ ¶³¾îÁö´Â µ¥ °É¸®´Â ½Ã°£ %.0lf s\n\n", time1, time2);
-		printf("=================================================================\n\n");
-	}
-
-	if (answer == SHOW)
-	{
-
-		printf("=========================   Á¤ ´ä   =============================\n\n");
-
-		printf("ÃÖ°í ³ôÀÌ µµ´Þ½Ã°£ %.0lf s * 2 = ¹°Ã¼°¡ ´Ù½Ã Áö¸é¿¡¼­ ¶³¾îÁö´Â µ¥ °É¸®´Â ½Ã°£ %.0lf s\n\n", time1, time2);
-
-
-		printf("=================================================================\n");
-		printf("\n\n\n");
-	}
-}
-
 
 int main(void)
 {
@@ -943,21 +115,21 @@ int main(void)
 	printf("=================================================================\n");
 
 
-	//Excersize_2_1(1,1);  // ¿Ï·á
-	//Excersize_2_3(1,1);  // ¿Ï·á
-	//Excersize_2_5(1,1);  // ¿Ï·á
+	//Excersize_2_1(1,1);  // ì™„ë£Œ
+	//Excersize_2_3(1,1);  // ì™„ë£Œ
+	//Excersize_2_5(1,1);  // ì™„ë£Œ
 	//  Excersize_2_10(1,1); // 
 	//  Excersize_2_9(1,1); // 
-	//Excersize_2_11(1,1); // ¿Ï·á
+	//Excersize_2_11(1,1); // ì™„ë£Œ
 	//Excersize_2_13(1,1);
 
 	Excersize_2_15(1, 1);
-	//Excersize_2_19(1, 1); // ¿Ï·á
+	//Excersize_2_19(1, 1); // ì™„ë£Œ
 
 	//Excersize_2_2(1, 0);
 	//Excersize_2_12(1, 0);
-    //  Excersize_2_21(1,1); //¿Ï·á
-	//Excersize_2_25(1, 1); //¿Ï·á
+    //  Excersize_2_21(1,1); //ì™„ë£Œ
+	//Excersize_2_25(1, 1); //ì™„ë£Œ
 	//Excersize_2_28(1,1);
 
 
