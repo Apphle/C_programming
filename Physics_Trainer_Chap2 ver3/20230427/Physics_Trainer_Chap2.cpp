@@ -18,7 +18,6 @@ void Excersize_2_15(int solution, int answer)
 	double velocity0 = 0;
 	double distance = 240.0;
 	double accel = 0;
-	double velocity_1 = 0;
 	double velocity_m = 0;
 	double m = 1000.0;
 	double s = 3600.0;
@@ -81,8 +80,6 @@ void Excersize_2_15(int solution, int answer)
 		printf("시간을 구해야 하므로 시간(t)에 대한 식으로 정리하면 t = (v / 3.6)^2 / a 가 됩니다.\n");
 
 		t = ((velocity * m) / s) / a;
-
-		//printf(" %lf", velocity_1);
 
 		printf("=================================================================\n");
 	}
