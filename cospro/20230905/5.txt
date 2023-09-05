@@ -1,0 +1,6 @@
+#include <stdio.h>
+#define ASKY 40
+int main(void) {
+    printf("\!@#$%%^&*(\\'\"<>?:;");
+    return 0;
+}
