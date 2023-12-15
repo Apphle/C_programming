@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+int* solution(char* schedule[], int schedule_len)
+{
+    int x_count = 0;
+    for (int i = 0; i < 10; i++)
+    {
+        if (schedule[i][0] == 'X')//  X가 몇개 있는지를 카운트
+        {
+            x_count++;
+        }
+    }
+
+    int* answer = (int*)malloc(sizeof(int) * x_count);
+    for (int i = 0, j = 0; i < 10; i++)
+    {
+        if (schedule[i][0] == 'X') // 만약 선생님 스케쥴에 X가 있다면
+        {
+            answer[j++] = i + 1;// j에 i + 1을 대입. 0부터 시작하기에 i를 대입하기엔 1이 작음
+        }
+    }
+    return answer;
+}
+
+int main() {
+    char* schedule[] = { "O", "X", "X", "O", "O", "O", "X", "O", "X", "X" };
+    int* ret = solution(schedule, 10);
+
+    printf("solution 함수의 반환 값은 ");
+    for (int i = 0; i < 5; i++)
+        printf("%d, ", ret[i]);
+    printf("입니다.");
+
+}

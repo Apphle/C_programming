@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+int solution(int calorie[], int calorie_len) 
+{
+    int min_cal = calorie[0];// 비교할 대상이 0이면 안됨
+    int answer = 0;
+    for(int i=0; i<calorie_len; i++) 
+    {
+        if(calorie[i] > min_cal)
+	{
+	   answer += calorie[i] - min_cal;// 오늘 먹은것이 어제보다 많으면 계산후 저장
+	}
+            
+        else
+	{
+	   min_cal = calorie[i];//어제보다 적게 먹었으면 min에 저장
+	}          
+    }
+    return answer;
+}
+
+int main() 
+{
+    int calorie[] = {713, 665, 873, 500, 751};
+    int ret = solution(calorie, 5);
+    
+    printf("solution 함수의 반환 값은 %d 입니다.\n", ret);
+}
