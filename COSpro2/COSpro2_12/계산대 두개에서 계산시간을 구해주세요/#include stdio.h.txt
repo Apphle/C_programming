@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+int solution(int stuffs[], int stuffs_len) 
+{
+    int answer = 0;
+    int small_counter = 0;
+    int general_counter = 0;
+
+    for(int i = 0; i < stuffs_len; i++) 
+    {
+        if(stuffs[i] > 3)// 만약 물건이 3개보다 많다면
+	{
+            general_counter += stuffs[i];//일반 계산대에 추가
+	}
+        else
+	{
+            small_counter += stuffs[i];// 아니면 소량 계산대에 추가
+	}
+    }
+
+    if(small_counter > general_counter)//소량 계산대에 물건이 더 많으면 소량이 답
+    {
+        answer = small_counter;
+    }
+    else
+    {
+        answer = general_counter;//반대면 일반이 답
+    }
+    return answer;
+}
+
+int main() 
+{
+    int stuffs[6] = {5, 3, 4, 2, 3, 2};
+    int stuffs_len = 6;
+    int ret = solution(stuffs, stuffs_len);
+
+    printf("solution 함수의 반환 값은 %d 입니다.\n", ret);
+}
